@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="view.MainActivity">
+
+    <TextView
+        android:id="@+id/textViewLogDetailTitle"
+        android:layout_width="363dp"
+        android:layout_height="37dp"
+        android:text="TextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="101dp" />
+
+    <EditText
+        android:id="@+id/editTextDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textViewLogDetailTitle"
+        android:layout_below="@+id/textViewLogDetailTitle"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:layout_alignEnd="@+id/textViewLogDetailTitle" />
+
+    <EditText
+        android:id="@+id/editTextTimeSpent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editTextDescription"
+        android:layout_below="@+id/editTextDescription"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:layout_alignEnd="@+id/editTextDescription" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editTextTimeSpent"
+        android:layout_below="@+id/editTextTimeSpent"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="28dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/ic_edit_seagreen_32" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextTimeSpent"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_marginEnd="28dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/ic_delete_coral_32" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_button_save_log_detail"
+        android:textColor="@color/colorLite"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

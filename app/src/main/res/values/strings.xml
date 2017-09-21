@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BabyLog</string>
+    <string name="home_title">Bem-vindo ao BabyLog!</string>
+    <string name="home_title_action">O que você deseja fazer?</string>
+    <string name="home_title_button_new">Registrar nova mamada</string>
+    <string name="title_button_save">Salvar</string>
+    <string name="home_title_button_viewall">Histórico de mamadas</string>
+    <string name="home_title_log_detail">Detalhes</string>
+    <string name="home_button_save_log_detail">Salvar</string>
+    <string name="home_title_viewall">Histórico de mamadas</string>
+    <string name="title_activity_new_brast_feeding">Nova Mamada</string>
+    <string name="title_activity_history">Histórico de Mamadas</string>
+    <string name="message_success_activity_new_brast_feeding">Mamada registrada com sucesso!</string>
+    <string name="hint_activity_new_brast_feeding">Ex.: Mamada iniciando na mama direita e finalizando na esquerda...</string>
+</resources>
