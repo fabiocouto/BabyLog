@@ -1,20 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" tools:context="com.bikespotapp.view.MapsActivity">
-    <item android:id="@+id/action_home"
+<item android:id="@+id/action_help"
         android:orderInCategory="100"
-        android:title="Home"
-        app:showAsAction="never" />
-    <item android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="Config."
-        app:showAsAction="never" />
-    <item android:id="@+id/action_help"
-        android:orderInCategory="100"
-        android:title="Ajuda"
-        app:showAsAction="never" />
-    <item android:id="@+id/action_logout"
-        android:orderInCategory="100"
-        android:title="Sair"
+        android:title="@string/title_menu_help"
         app:showAsAction="never" />
 </menu>

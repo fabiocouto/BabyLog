@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">BabyLog</string>
+    <string name="app_version">Versão - 1.0</string>
     <string name="home_title">Bem-vindo ao BabyLog!</string>
     <string name="home_title_action">O que você deseja fazer?</string>
     <string name="home_title_button_new">Registrar nova mamada</string>
     <string name="title_button_save">Salvar</string>
+    <string name="title_alert_atention">Atenção!</string>
+    <string name="title_alert_warning">Aviso!</string>
+    <string name="title_alert_error">Salvar</string>
+    <string name="neutral_button_ok">OK</string>
+    <string name="positive_alert">Sim</string>
+    <string name="negative_alert">Não</string>
+    <string name="title_menu_help">Ajuda</string>
     <string name="home_title_button_viewall">Histórico de mamadas</string>
     <string name="home_title_log_detail">Detalhes</string>
     <string name="home_button_save_log_detail">Salvar</string>
@@ -11,5 +19,10 @@
     <string name="title_activity_new_brast_feeding">Nova Mamada</string>
     <string name="title_activity_history">Histórico de Mamadas</string>
     <string name="message_success_activity_new_brast_feeding">Mamada registrada com sucesso!</string>
+    <string name="message_success_activity_delete_brast_feeding">Registro apagado com sucesso!</string>
+    <string name="message_success_activity_update_brast_feeding">Mamada atualizada com sucesso!</string>
+    <string name="message_alert_activity_delete_brast_feeding">O registro será excluído para sempre. Deseja continuar?</string>
+    <string name="message_no_filled_fields"> Os campos não podem estar vazios!</string>
+    <string name="message_no_activities">Nenhuma atividade cadastrada até o momento!</string>
     <string name="hint_activity_new_brast_feeding">Ex.: Mamada iniciando na mama direita e finalizando na esquerda...</string>
 </resources>

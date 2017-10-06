@@ -4,17 +4,21 @@ package model;
  * Created by fabiodocoutooliveira on 9/20/17.
  */
 
-import android.os.Parcelable;
+import android.content.ContentUris;
+import android.net.Uri;
 import android.os.Parcel;
+import android.os.Parcelable;
+import android.provider.BaseColumns;
+import android.support.annotation.NonNull;
 
 /**
  * Created by fabiodocoutooliveira on 9/14/17.
  */
 
-public class ActivityLog implements Parcelable {
+public class ActivityLog implements Parcelable, Comparable<ActivityLog> {
 
     private Integer idActivity;
-    private Integer timeSpent;
+    private Long timeSpent;
     private String title;
     private String description;
     private String username;
@@ -23,13 +27,20 @@ public class ActivityLog implements Parcelable {
     private String localDate;
     private String localHour;
 
+    public static final String AUTHORITY = "com.babylog";
+    public static String[] columns = new String[]{ActivityLogEntityColumns._ID,
+            ActivityLogEntityColumns.ID_ACTIVITY, ActivityLogEntityColumns.TITLE,
+            ActivityLogEntityColumns.DESCRIPTION, ActivityLogEntityColumns.USERNAME,ActivityLogEntityColumns.LOCAL_DATE,
+            ActivityLogEntityColumns.PLATFORM, ActivityLogEntityColumns.CATEGORY,
+            ActivityLogEntityColumns.LOCAL_HOUR, ActivityLogEntityColumns.TIME_SPENT};
 
     public ActivityLog() {
     }
+
     // Parcelable start
     public ActivityLog(Parcel source) {
         idActivity = source.readInt();
-        timeSpent = source.readInt();
+        timeSpent = source.readLong();
         title = source.readString();
         description = source.readString();
         username = source.readString();
@@ -48,7 +59,7 @@ public class ActivityLog implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(idActivity);
-        dest.writeInt(timeSpent);
+        dest.writeLong(timeSpent);
         dest.writeString(title);
         dest.writeString(description);
         dest.writeString(username);
@@ -79,11 +90,11 @@ public class ActivityLog implements Parcelable {
         this.idActivity = idActivity;
     }
 
-    public Integer getTimeSpent() {
+    public Long getTimeSpent() {
         return timeSpent;
     }
 
-    public void setTimeSpent(Integer timeSpent) {
+    public void setTimeSpent(Long timeSpent) {
         this.timeSpent = timeSpent;
     }
 
@@ -123,7 +134,7 @@ public class ActivityLog implements Parcelable {
         return platform;
     }
 
-    public void setPlatform(String plattform) {
+    public void setPlatform(String platform) {
         this.platform = platform;
     }
 
@@ -142,6 +153,7 @@ public class ActivityLog implements Parcelable {
     public void setLocalHour(String localHour) {
         this.localHour = localHour;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -170,6 +182,7 @@ public class ActivityLog implements Parcelable {
 
     }
 
+
     @Override
     public int hashCode() {
         int result = getIdActivity() != null ? getIdActivity().hashCode() : 0;
@@ -197,5 +210,44 @@ public class ActivityLog implements Parcelable {
                 ", localDate='" + localDate + '\'' +
                 ", localHour='" + localHour + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(@NonNull ActivityLog activityLog) {
+        return getIdActivity().compareTo(activityLog.getIdActivity());
+    }
+
+
+    public static final class ActivityLogEntityColumns implements BaseColumns {
+
+        public static final Uri CONTENT_URI = Uri.parse("content://"
+                + AUTHORITY + "/babylog");
+        // Mime Type para todos os Logs
+        public static final String CONTENT_TYPE = "vnd.android.cursor.dir/vnd.google.babylogs";
+        // Mime Type para uma unico BabyLog
+        public static final String CONTENT_ITEM_TYPE = "vnd.android.cursor.item/vnd.google.babylog";
+        // OrdenaÁ„o default para inserir no order by
+        public static final String DEFAULT_SORT_ORDER = "_id ASC";
+        public static final String _ID = "_id";
+        public static final String ID_ACTIVITY = "idactivity";
+        public static final String TITLE = "title";
+        public static final String DESCRIPTION = "description";
+        public static final String USERNAME = "username";
+        public static final String PLATFORM = "platform";
+        public static final String CATEGORY = "category";
+        public static final String LOCAL_DATE = "local_date";
+        public static final String LOCAL_HOUR = "local_hour";
+        public static final String TIME_SPENT = "time_spent";
+
+        private ActivityLogEntityColumns() {
+        }
+
+        // Metodo que constroi uma Uri para um BIKESPOT especifico, com o seu id
+        public static Uri getUriId(long id) {
+
+            Uri uriBikeSpots = ContentUris.withAppendedId(ActivityLog.ActivityLogEntityColumns.CONTENT_URI, id);
+            return uriBikeSpots;
+        }
     }
 }

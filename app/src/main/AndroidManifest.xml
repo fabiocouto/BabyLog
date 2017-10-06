@@ -23,17 +23,22 @@
             android:name="view.ListAllHistoryActivity"
             android:label="@string/home_title_viewall"
             android:parentActivityName="view.MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name="view.LogDetailActivity"
             android:label="@string/home_title_log_detail"
             android:parentActivityName="view.ListAllHistoryActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name="view.NewBreastFeedingActivity"
             android:label="@string/title_activity_new_brast_feeding"
             android:parentActivityName="view.MainActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="view.HelpActivity"
+            android:label="@string/title_menu_help"
+            android:parentActivityName="view.MainActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

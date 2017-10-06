@@ -40,9 +40,10 @@ public class ActivityListAdapter extends ArrayAdapter<ActivityLog> {
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             rowView = inflater.inflate(layoutResourceID, parent, false);
             holder = new ActivityHolder();
-            holder.txtTitle = (TextView) rowView.findViewById(R.id.txtTitleBikeSpotCommentItem);
-            holder.txtUsername = (TextView) rowView.findViewById(R.id.txtUserBikeSpotCommentItem);
-            holder.txtDate = (TextView) rowView.findViewById(R.id.txtDateBikeSpotCommentItem);
+            holder.txtTitle = (TextView) rowView.findViewById(R.id.txtTitleActivityLogItem);
+            holder.txtDescription = (TextView) rowView.findViewById(R.id.txtDescriptionActivityLogItem);
+            holder.txtTimeSpent = (TextView) rowView.findViewById(R.id.txtTimeSpentItem);
+            holder.txtDate = (TextView) rowView.findViewById(R.id.txtDateActivityItem);
             rowView.setTag(holder);
 
         }
@@ -52,10 +53,10 @@ public class ActivityListAdapter extends ArrayAdapter<ActivityLog> {
 
         for(int i = 0; i < lista.size(); i++){
             ActivityLog activityE = lista.get(position);
-            //TODO
             holder.txtTitle.setText(activityE.getTitle());
-            holder.txtUsername.setText("Fabio");
-            holder.txtDate.setText("20/09/2017");
+            holder.txtDescription.setText(activityE.getDescription());
+            holder.txtTimeSpent.setText(String.valueOf(activityE.getTimeSpent()));
+            holder.txtDate.setText(activityE.getLocalDate());
         }
 
         return rowView;
@@ -64,8 +65,9 @@ public class ActivityListAdapter extends ArrayAdapter<ActivityLog> {
 
     static class ActivityHolder{
         TextView txtTitle;
+        TextView txtDescription;
         TextView txtDate;
-        TextView txtUsername;
+        TextView txtTimeSpent;
     }
 
 }

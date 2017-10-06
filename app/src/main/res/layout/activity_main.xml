@@ -15,6 +15,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="80dp"
         android:fontFamily="casual"
+        android:lineSpacingExtra="@dimen/fab_margin"
         android:text="@string/home_title"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -69,5 +70,19 @@
         android:layout_alignStart="@+id/textViewTitle"
         android:layout_alignRight="@+id/textViewTitle"
         android:layout_alignEnd="@+id/textViewTitle" />
+
+    <TextView
+        android:id="@+id/textViewVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_version"
+        android:textAlignment="center"
+        android:layout_gravity="bottom"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorGray"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_alignStart="@+id/buttonViewLogs"
+        android:layout_alignEnd="@+id/buttonViewLogs" />
 
 </RelativeLayout>

@@ -7,30 +7,40 @@
         android:padding="10dp" >
 
         <TextView
-            android:id="@+id/txtTitleBikeSpotCommentItem"
+            android:id="@+id/txtTitleActivityLogItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@+id/label"
             android:textSize="20sp" />
         <TextView
-            android:id="@+id/txtUserBikeSpotCommentItem"
+            android:id="@+id/txtDescriptionActivityLogItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtTitleActivityLogItem"
+            android:text="@+id/label"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:textColor="@color/colorGray"
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/txtTimeSpentItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/txtTitleBikeSpotCommentItem"
+            android:layout_below="@+id/txtDescriptionActivityLogItem"
             android:text="@+id/label"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/colorGray"
             android:textSize="12sp" />
         <TextView
-            android:id="@+id/txtDateBikeSpotCommentItem"
+            android:id="@+id/txtDateActivityItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/txtUserBikeSpotCommentItem"
-            android:layout_below="@+id/txtTitleBikeSpotCommentItem"
+            android:layout_alignTop="@+id/txtTimeSpentItem"
+            android:layout_below="@+id/txtDescriptionActivityLogItem"
             android:text="@+id/label"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/colorGray"

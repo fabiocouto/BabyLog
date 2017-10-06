@@ -1,13 +1,15 @@
 package view;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import babylog.com.babylog.R;
+import dao.ActivityLogDAO;
+import helper.DatebaseInit;
 
 /**
  * Created by fabiodocoutooliveira on 9/14/17.
@@ -17,12 +19,14 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnNewBreastFeeding;
     private Button btnViewAllHistory;
+    private final Integer ZERO = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DatebaseInit db = new DatebaseInit(getApplicationContext());
         initFields();
     }
 
@@ -47,22 +51,35 @@ public class MainActivity extends AppCompatActivity {
         btnViewAllHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showActivityAllHistory();
+
+                ActivityLogDAO dao = new ActivityLogDAO(getApplicationContext());
+
+                if(dao.getAllLocalActivityLogs().size() == ZERO){
+                    showMessageErrorDialog();
+                } else {
+                    showActivityAllHistory();
+                }
+
             }
         });
     }
 
     protected void showNewActivityBreastFeeding(){
-        Toast.makeText(getApplicationContext(), "It worked!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getApplicationContext(), NewBreastFeedingActivity.class);
         startActivity(intent);
     }
 
     protected void showActivityAllHistory(){
-
-        Toast.makeText(getApplicationContext(), "It worked too!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getApplicationContext(), ListAllHistoryActivity.class);
         startActivity(intent);
+    }
+
+    protected void showMessageErrorDialog(){
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(MainActivity.this);
+        dialogo.setTitle(R.string.title_alert_warning);
+        dialogo.setMessage("Nenhuma atividade cadastrada até o momento!");
+        dialogo.setNeutralButton(R.string.neutral_button_ok, null);
+        dialogo.show();
     }
 
 
