@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:padding="10dp" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="10dp">
 
         <TextView
             android:id="@+id/txtTitleActivityLogItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="@+id/label"
             android:textSize="20sp" />
         <TextView
@@ -20,20 +22,32 @@
             android:text="@+id/label"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:textColor="@color/colorGray"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/colorDarkGray"
             android:textSize="16sp" />
-        <TextView
-            android:id="@+id/txtTimeSpentItem"
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/txtDescriptionActivityLogItem"
-            android:text="@+id/label"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/colorGray"
-            android:textSize="12sp" />
-        <TextView
+            app:srcCompat="@drawable/ic_clock_gray_24"
+            android:id="@+id/imageView"
+            android:layout_alignBottom="@+id/txtTimeSpentItem"
+           />
+
+    <TextView
+        android:id="@+id/txtTimeSpentItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@+id/label"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="12sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/txtDescriptionActivityLogItem"
+        android:layout_toEndOf="@+id/imageView" />
+
+    <TextView
             android:id="@+id/txtDateActivityItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +57,7 @@
             android:layout_below="@+id/txtDescriptionActivityLogItem"
             android:text="@+id/label"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/colorGray"
+            android:textColor="@color/colorDarkGray"
             android:textSize="12sp" />
 
 

@@ -38,16 +38,16 @@
         android:id="@+id/editTextTimeSpent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textViewDateDetail"
+        android:layout_alignStart="@+id/textViewLogDetailTitle"
         android:layout_below="@+id/editTextDescription"
-        android:layout_marginTop="19dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="19dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:hint="@string/hint_activity_detail_timespent"
         android:imeOptions="actionDone"
-        android:text="80 minutos"
-        android:layout_alignEnd="@+id/textViewDateDetail"
-        android:layout_alignStart="@+id/textViewLogDetailTitle" />
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/textViewDateDetail"

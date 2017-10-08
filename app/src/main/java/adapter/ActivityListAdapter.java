@@ -12,6 +12,7 @@ import java.util.List;
 
 import babylog.com.babylog.R;
 import model.ActivityLog;
+import utils.StringConverter;
 
 /**
  * Created by fabiodocoutooliveira on 19/07/15.
@@ -35,6 +36,7 @@ public class ActivityListAdapter extends ArrayAdapter<ActivityLog> {
 
         View rowView = convertView;
         ActivityHolder holder = null;
+        StringConverter stringConverter = new StringConverter();
 
         if (rowView == null){
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
@@ -55,7 +57,7 @@ public class ActivityListAdapter extends ArrayAdapter<ActivityLog> {
             ActivityLog activityE = lista.get(position);
             holder.txtTitle.setText(activityE.getTitle());
             holder.txtDescription.setText(activityE.getDescription());
-            holder.txtTimeSpent.setText(String.valueOf(activityE.getTimeSpent()));
+            holder.txtTimeSpent.setText(stringConverter.convertedTimeFromMinutes(activityE.getTimeSpent()));
             holder.txtDate.setText(activityE.getLocalDate());
         }
 

@@ -33,7 +33,10 @@ public class NewBreastFeedingActivity extends AppCompatActivity {
     private Long timeToResume;
     private Long miliseconds;
     private Long seconds;
+    private final Integer ONE = 1;
     private final Integer ZERO = 0;
+    private final Long ONE_MINUTE_LONG = 1l;
+    private final Integer SECONDS_IN_A_MINUTE = 60;
     private final Integer MINUS_ONE = -1;
     private final String PLATFORM = "ANDROID";
     private final String GUEST_USER = "GUEST";
@@ -80,7 +83,7 @@ public class NewBreastFeedingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 stopChronometer();
                 timeWhenStopped = miliseconds;
-                seconds = (timeWhenStopped/1000 % 60);
+                seconds = (timeWhenStopped/1000 % SECONDS_IN_A_MINUTE);
                 timeToResume = Long.valueOf(seconds);
             }
         });
@@ -101,7 +104,7 @@ public class NewBreastFeedingActivity extends AppCompatActivity {
                     activity1.setIdActivity(activityId);
                     activity1.setTitle(strConverter.generateActivityLogTitle(activityId));
                     activity1.setDescription(edtTextdescription.getText().toString());
-                    activity1.setTimeSpent(Long.valueOf(seconds));
+                    activity1.setTimeSpent(convertToMinuteFromSecond(seconds));
                     activity1.setLocalDate(strConverter.getLocalDateTimeFormatted());
                     activity1.setLocalHour(strConverter.getLocalTimeFormatted());
                     activity1.setUsername(GUEST_USER);
@@ -130,9 +133,19 @@ public class NewBreastFeedingActivity extends AppCompatActivity {
         return activity2;
     }
 
+    protected Long convertToMinuteFromSecond(Long seconds){
+
+        Long minute = seconds / SECONDS_IN_A_MINUTE;
+        if(minute < ONE){
+            return ONE_MINUTE_LONG;
+        }
+        return minute;
+    }
+
     protected  void clearChronometer(){
         chronometer.setFormat(null);
     }
+
     protected void startChronometer(){
         chronometer.setBase(SystemClock.elapsedRealtime() - miliseconds);
         chronometer.start();
@@ -145,20 +158,17 @@ public class NewBreastFeedingActivity extends AppCompatActivity {
     protected Boolean isEditTextDescriptionFilled(){
 
         if (edtTextdescription.getText().toString().equals("")) {
-
             return false;
-
         } else{
-
             return  true;
         }
     }
 
     protected void showMessageErrorDialog(){
         AlertDialog.Builder dialogo = new AlertDialog.Builder(NewBreastFeedingActivity.this);
-        dialogo.setTitle("Aviso!");
-        dialogo.setMessage("Favor preencher a descrição!");
-        dialogo.setNeutralButton("Ok", null);
+        dialogo.setTitle(R.string.title_alert_warning);
+        dialogo.setMessage(R.string.message_no_filled_field);
+        dialogo.setNeutralButton(R.string.neutral_button_ok, null);
         dialogo.show();
     }
 

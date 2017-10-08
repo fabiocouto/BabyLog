@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#20B2AA</color> <!-- #3F51B5 !-->
+    <color name="colorPrimary">#20b2aa</color> <!-- #3F51B5 !-->
     <color name="colorPrimaryDark">#008080</color> <!-- #303F9F !-->
     <color name="colorAccent">#ff7f50</color> <!-- #ff4081 !-->
     <color name="colorLite">#ffffff</color> <!-- !-->
     <color name="colorGray">#d3d3d3</color> <!-- #ff4081 !-->
+    <color name="colorDarkGray">#a9a9a9</color> <!-- #ff4081 !-->
     <color name="colorBlack">#000000</color> <!-- !-->
     <color name="colorRed">#FF0000</color> <!-- #ff4081 !-->
 </resources>
