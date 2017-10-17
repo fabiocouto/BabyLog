@@ -97,6 +97,67 @@ public class ActivityLogDAO {
 
     }
 
+    public ArrayList<ActivityLog> getAllLocalBreastFeedingActivityLogs() {
+
+        ArrayList<ActivityLog> activityLogArrayList  = new ArrayList<>();
+// _id , idactivity, title, description, username, category, platform, local_date, local_hour, time_spent
+        Cursor cur = db.rawQuery("SELECT * FROM activity WHERE category = 'M';", null);
+        if (cur.moveToFirst()) {
+            do {
+                ActivityLog activityLog = new ActivityLog();
+
+                activityLog.setIdActivity(cur.getInt(1));
+                activityLog.setTitle(cur.getString(2));
+                activityLog.setDescription(cur.getString(3));
+                activityLog.setUsername(cur.getString(4));
+                activityLog.setCategory(cur.getString(5));
+                activityLog.setPlatform(cur.getString(6));
+                activityLog.setLocalDate(cur.getString(7));
+                activityLog.setLocalHour(cur.getString(8));
+                activityLog.setTimeSpent(cur.getLong(9));
+                activityLogArrayList.add(activityLog);
+
+            } while (cur.moveToNext());
+        }
+        if (cur != null && !cur.isClosed()) {
+            cur.close();
+
+        }
+        Collections.sort(activityLogArrayList, Collections.<ActivityLog>reverseOrder());
+        return activityLogArrayList;
+
+    }
+
+    public ArrayList<ActivityLog> getAllLocalFormulaFeedingActivityLogs() {
+
+        ArrayList<ActivityLog> activityLogArrayList  = new ArrayList<>();
+// _id , idactivity, title, description, username, category, platform, local_date, local_hour, time_spent
+        Cursor cur = db.rawQuery("SELECT * FROM activity WHERE category = 'F';", null);
+        if (cur.moveToFirst()) {
+            do {
+                ActivityLog activityLog = new ActivityLog();
+
+                activityLog.setIdActivity(cur.getInt(1));
+                activityLog.setTitle(cur.getString(2));
+                activityLog.setDescription(cur.getString(3));
+                activityLog.setUsername(cur.getString(4));
+                activityLog.setCategory(cur.getString(5));
+                activityLog.setPlatform(cur.getString(6));
+                activityLog.setLocalDate(cur.getString(7));
+                activityLog.setLocalHour(cur.getString(8));
+                activityLog.setTimeSpent(cur.getLong(9));
+                activityLogArrayList.add(activityLog);
+
+            } while (cur.moveToNext());
+        }
+        if (cur != null && !cur.isClosed()) {
+            cur.close();
+
+        }
+        Collections.sort(activityLogArrayList, Collections.<ActivityLog>reverseOrder());
+        return activityLogArrayList;
+
+    }
 
     public int updateActivityLog(ActivityLog activityLog){
 
@@ -126,6 +187,15 @@ public class ActivityLogDAO {
 
     }
 
+    public int updateActivityLogWithParams(Integer id, String description){
+
+        Log.d("DAO4: ", id.toString() + description.toString());
+
+        ContentValues values = new ContentValues();
+        values.put("description", description);
+        return db.update(TABLE_ACTIVITY, values, ActivityLog.ActivityLogEntityColumns.ID_ACTIVITY+ " = " + id, null);
+
+    }
 
     public int deleteActivityLog(ActivityLog activityLog){
 
@@ -145,6 +215,21 @@ public class ActivityLogDAO {
 
     public Integer generateActivityLogId(){
         if(!getAllLocalActivityLogs().isEmpty()){
+            return getAllLocalActivityLogs().size() + ONE;
+        }
+        return ONE;
+    }
+
+    public Integer generateFormulaActivityLogId(){
+        if(!getAllLocalActivityLogs().isEmpty()){
+            return getAllLocalFormulaFeedingActivityLogs().size() + ONE;
+        }
+        return ONE;
+    }
+
+
+    public Integer generateBreastFeedingActivityLogId(){
+        if(!getAllLocalBreastFeedingActivityLogs().isEmpty()){
             return getAllLocalActivityLogs().size() + ONE;
         }
         return ONE;

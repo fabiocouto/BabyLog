@@ -31,7 +31,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="view.NewBreastFeedingActivity"
-            android:label="@string/title_activity_new_brast_feeding"
+            android:label="@string/title_activity_new_breast_feeding"
+            android:parentActivityName="view.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="view.NewFormulaActivity"
+            android:label="@string/title_activity_new_breast_feeding"
             android:parentActivityName="view.MainActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -39,6 +44,11 @@
             android:label="@string/title_menu_help"
             android:parentActivityName="view.MainActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="view.ListMenuActivity"
+            android:label="@string/title_menu_list"
+            android:parentActivityName="view.MainActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
