@@ -57,11 +57,17 @@ public class MainActivity extends AppCompatActivity {
                 if(dao.getAllLocalActivityLogs().size() == ZERO){
                     showMessageErrorDialog();
                 } else {
-                    showActivityAllHistory();
+                    showListMenuActivity();
+                    //showActivityAllHistory();
                 }
 
             }
         });
+    }
+
+    protected void showListMenuActivity(){
+        Intent intent = new Intent(getApplicationContext(), ListMenuActivity.class);
+        startActivity(intent);
     }
 
     protected void showNewActivityBreastFeeding(){

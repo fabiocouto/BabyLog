@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +20,7 @@ import model.ActivityLog;
 
 public class ListAllHistoryActivity extends AppCompatActivity {
 
-    public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy - hh:mm a");
-    private final static String ACTION = "NotifyServiceAction";
-    private final String MESSAGE_ERROR_NOFILLED ="Campos obrigatórios. Favor verificar os dados e tentar novamente!";
     private final String MESSAGE_ERROR_AFTER_GET ="Opa! Ocorreu um erro ao realizar a busca. Tente novamente mais tarde!";
-    private final String MESSAGE_OF_SUCCESS = "Comentário cadastrado com sucesso!";
     private ListView lstVwActivityLog;
 
 
@@ -62,7 +57,7 @@ public class ListAllHistoryActivity extends AppCompatActivity {
         List<ActivityLog> activityList = new ArrayList<>();
         try{
             ActivityLogDAO dao = new ActivityLogDAO(getApplicationContext());
-            activityList = dao.getAllLocalActivityLogs();
+            activityList = dao.getAllLocalBreastFeedingActivityLogs();
         }catch (Exception e) {
             Toast.makeText(getApplicationContext(), MESSAGE_ERROR_AFTER_GET, Toast.LENGTH_LONG).show();
         }

@@ -45,7 +45,7 @@ public class NewBreastFeedingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_brast_feeding);
+        setContentView(R.layout.activity_new_breast_feeding);
         initFields();
     }
 
@@ -112,7 +112,7 @@ public class NewBreastFeedingActivity extends AppCompatActivity {
                     activity1.setCategory("M");
                     dao.insertActivityLog(activity1);
                     dao.closeDataBase();
-                    Toast.makeText(getApplicationContext(), R.string.message_success_activity_new_brast_feeding, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.message_success_activity_new_breast_feeding, Toast.LENGTH_SHORT).show();
                     showMainActivity();
 
                 }  else {

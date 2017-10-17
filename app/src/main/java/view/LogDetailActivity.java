@@ -87,7 +87,7 @@ public class LogDetailActivity extends AppCompatActivity {
 
                 final AlertDialog.Builder builder = new AlertDialog.Builder(LogDetailActivity.this);
                 builder.setTitle(R.string.title_alert_atention);
-                builder.setMessage(R.string.message_alert_activity_delete_brast_feeding);
+                builder.setMessage(R.string.message_alert_activity_delete_breast_feeding);
                 builder.setPositiveButton(R.string.positive_alert, new DialogInterface.OnClickListener() {
 
                     @Override
@@ -95,7 +95,7 @@ public class LogDetailActivity extends AppCompatActivity {
 
                         ActivityLogDAO activityLogDAO = new ActivityLogDAO(getApplicationContext());
                         activityLogDAO.deleteActivityLog(activityLog);
-                        Toast.makeText(getApplicationContext(), R.string.message_success_activity_delete_brast_feeding, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.message_success_activity_delete_breast_feeding, Toast.LENGTH_LONG).show();
                         showMainActivity();
                     }
                 });
@@ -120,7 +120,7 @@ public class LogDetailActivity extends AppCompatActivity {
                 // TODO update in DAO;
                 ActivityLogDAO dao = new ActivityLogDAO(getApplicationContext());
                 dao.updateActivityLogWithParams(idActivityTmp, edtTextDescription.getText().toString(), edtTextTimeSpent.getText().toString());
-                Toast.makeText(getApplicationContext(), R.string.message_success_activity_update_brast_feeding, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.message_success_activity_update_breast_feeding, Toast.LENGTH_SHORT).show();
                 edtTextDescription.setEnabled(false);
                 edtTextTimeSpent.setEnabled(false);
                 showMainActivity();

@@ -46,7 +46,7 @@
            android:layout_below="@+id/imageButtonPause"
            android:layout_marginTop="18dp"
            android:ems="10"
-           android:hint="@string/hint_activity_new_brast_feeding"
+           android:hint="@string/hint_activity_new_breast_feeding"
            android:layout_width="278dp"
            android:layout_height="96dp"
            android:layout_marginLeft="16dp"

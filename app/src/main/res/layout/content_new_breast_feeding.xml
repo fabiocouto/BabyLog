@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="view.NewBreastFeedingActivity"
-    tools:showIn="@layout/activity_new_brast_feeding">
+    tools:showIn="@layout/activity_new_breast_feeding">
 
 </android.support.constraint.ConstraintLayout>

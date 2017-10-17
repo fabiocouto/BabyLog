@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="view.NewBreastFeedingActivity">
+
+       <EditText
+           android:id="@+id/editTextDescriptionActivity"
+           android:layout_marginTop="123dp"
+           android:ems="10"
+           android:hint="@string/hint_activity_formula_feeding"
+           android:layout_width="278dp"
+           android:layout_height="96dp"
+           android:layout_marginLeft="16dp"
+           android:layout_marginRight="16dp"
+           android:inputType="textMultiLine"
+           android:imeOptions="actionDone"
+           android:layout_alignParentTop="true"
+           android:layout_alignParentEnd="true"
+           android:layout_alignParentStart="true" />
+
+
+       <Button
+           android:id="@+id/buttonSaveNewLog"
+           android:layout_gravity="top"
+           android:layout_width="278dp"
+           android:layout_height="48dp"
+           android:textColor="@color/colorLite"
+           android:backgroundTint="@color/colorAccent"
+           android:text="@string/title_button_save"
+           tools:layout_editor_absoluteX="54dp"
+           tools:layout_editor_absoluteY="322dp"
+           android:layout_alignParentBottom="true"
+           android:layout_alignParentStart="true"
+           android:layout_marginBottom="16dp"
+           android:layout_marginLeft="16dp"
+           android:layout_marginRight="16dp"
+           android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textViewMls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextDescriptionActivity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:text="TextView" />
+
+    <SeekBar
+        android:id="@+id/seekBarMls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editTextDescriptionActivity"
+        android:layout_alignStart="@+id/editTextDescriptionActivity"
+        android:layout_below="@+id/textViewMls"
+        android:layout_marginTop="31dp"
+        android:max="220"
+        android:progress="30" />
+
+</RelativeLayout>

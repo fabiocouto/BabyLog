@@ -60,9 +60,12 @@ public class StringConverter {
     }
 
     public String generateActivityLogTitle(Integer id){
-        return "#" + String.valueOf(id) + " Atividade";
+        return "#" + String.valueOf(id) + " Leite materno";
     }
 
+    public String generateActivityLogTitleForFormula(Integer id){
+        return "#" + String.valueOf(id) + " Complemento";
+    }
 
     /**
      * Convert a millisecond duration to a string format
