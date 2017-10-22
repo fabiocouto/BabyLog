@@ -15,7 +15,7 @@
            android:layout_height="96dp"
            android:layout_marginLeft="16dp"
            android:layout_marginRight="16dp"
-           android:inputType="textMultiLine"
+           android:inputType="textAutoComplete"
            android:imeOptions="actionDone"
            android:layout_alignParentTop="true"
            android:layout_alignParentEnd="true"
@@ -46,17 +46,19 @@
         android:layout_below="@+id/editTextDescriptionActivity"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
-        android:text="TextView" />
+        android:text="@string/text_activity_formula_feeding" />
 
-    <SeekBar
-        android:id="@+id/seekBarMls"
+    <EditText
+        android:id="@+id/editTextMls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editTextDescriptionActivity"
-        android:layout_alignStart="@+id/editTextDescriptionActivity"
         android:layout_below="@+id/textViewMls"
-        android:layout_marginTop="31dp"
-        android:max="220"
-        android:progress="30" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="@string/hint_activity_formula_mls"
+        android:inputType="number"
+        android:imeOptions="actionDone"
+        android:textAlignment="center" />
 
 </RelativeLayout>

@@ -13,12 +13,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.ActivityListAdapter;
+import adapter.ActivityListAdapterFormula;
 import babylog.com.babylog.R;
 import dao.ActivityLogDAO;
 import model.ActivityLog;
 
-public class ListAllHistoryActivity extends AppCompatActivity {
+public class ListAllFormulaHistoryActivity extends AppCompatActivity {
 
     private final String MESSAGE_ERROR_AFTER_GET ="Opa! Ocorreu um erro ao realizar a busca. Tente novamente mais tarde!";
     private ListView lstVwActivityLog;
@@ -27,14 +27,14 @@ public class ListAllHistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_all_history);
+        setContentView(R.layout.activity_list_all_formula_history);
         initFields();
-        setBreastFeedActivityHistoryAdapter(getAllHistory());
+        setFormulaHistoryAdapter(getAllHistory());
     }
 
 
     protected void initFields(){
-        lstVwActivityLog = (ListView) findViewById(R.id.listViewActivityLog);
+        lstVwActivityLog = (ListView) findViewById(R.id.listViewFormulaActivityLog);
     }
 
 
@@ -57,7 +57,7 @@ public class ListAllHistoryActivity extends AppCompatActivity {
         List<ActivityLog> activityList = new ArrayList<>();
         try{
             ActivityLogDAO dao = new ActivityLogDAO(getApplicationContext());
-            activityList = dao.getAllLocalBreastFeedingActivityLogs();
+            activityList = dao.getAllLocalFormulaFeedingActivityLogs();
         }catch (Exception e) {
             Toast.makeText(getApplicationContext(), MESSAGE_ERROR_AFTER_GET, Toast.LENGTH_LONG).show();
         }
@@ -65,16 +65,16 @@ public class ListAllHistoryActivity extends AppCompatActivity {
     }
 
 
-    public void setBreastFeedActivityHistoryAdapter(final List<ActivityLog> activityLogList){
+    public void setFormulaHistoryAdapter(final List<ActivityLog> activityLogList){
 
-        ActivityListAdapter adapter = new ActivityListAdapter(this, R.layout.activity_list_all_history_itens, activityLogList);
+        ActivityListAdapterFormula adapter = new ActivityListAdapterFormula(this, R.layout.activity_list_all_formula_history_itens, activityLogList);
         lstVwActivityLog.setAdapter(adapter);
         lstVwActivityLog.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 ActivityLog activityLog = activityLogList.get(position);
-                Intent logDetailsIntent = new Intent(ListAllHistoryActivity.this, LogDetailActivity.class);
-                logDetailsIntent.putExtra("LogDetailKey", activityLog);
+                Intent logDetailsIntent = new Intent(ListAllFormulaHistoryActivity.this, LogDetailActivity.class);
+                logDetailsIntent.putExtra("LogDetailKeyFormula", activityLog);
                 startActivity(logDetailsIntent);
 
             }

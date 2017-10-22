@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txtTitleFormulaActivityLogItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="test"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/txtDescriptionFormulaActivityLogItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test"
+            android:layout_below="@+id/txtTitleFormulaActivityLogItem"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_milk_gray_24"
+            android:id="@+id/imageViewMilk"
+            android:layout_alignBottom="@+id/txtFormulaSpentItem"
+           />
+
+    <TextView
+        android:id="@+id/txtFormulaSpentItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="12sp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/txtDescriptionFormulaActivityLogItem"
+        android:layout_toEndOf="@+id/imageViewMilk" />
+
+    <TextView
+            android:id="@+id/txtDateFormulaActivityItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/txtFormulaSpentItem"
+            android:layout_below="@+id/txtDescriptionFormulaActivityLogItem"
+            android:text="test"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="12sp" />
+
+
+</RelativeLayout>

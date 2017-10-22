@@ -25,6 +25,11 @@
             android:parentActivityName="view.MainActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="view.ListAllFormulaHistoryActivity"
+            android:label="@string/home_title_viewall"
+            android:parentActivityName="view.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="view.LogDetailActivity"
             android:label="@string/home_title_log_detail"
             android:parentActivityName="view.ListAllHistoryActivity"

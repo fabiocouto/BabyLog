@@ -59,12 +59,25 @@ public class StringConverter {
         return output;
     }
 
+    public String converteFromMilliliters(Long litre){
+
+        String output = "";
+        if (litre > 999 ) {
+            litre = litre / 1000;
+            output = String.valueOf(litre).concat(" litro(s)");
+        } else {
+            output = String.valueOf(litre).concat(" ml ");
+        }
+        return output;
+    }
+
+
     public String generateActivityLogTitle(Integer id){
         return "#" + String.valueOf(id) + " Leite materno";
     }
 
     public String generateActivityLogTitleForFormula(Integer id){
-        return "#" + String.valueOf(id) + " Complemento";
+        return "#" + String.valueOf(id) + " Complemento/Fórmula";
     }
 
     /**

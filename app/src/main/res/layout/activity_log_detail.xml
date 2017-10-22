@@ -10,14 +10,27 @@
         android:id="@+id/textViewLogDetailTitle"
         android:layout_width="363dp"
         android:layout_height="37dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="16dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="74dp"
         android:text="#1 Mamada"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/buttonUpdateSave" />
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textViewEditDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textViewLogDetailTitle"
+        android:layout_alignStart="@+id/editTextDescription"
+        android:layout_below="@+id/textViewLogDetailTitle"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Descrição da atividade" />
 
     <EditText
         android:id="@+id/editTextDescription"
@@ -26,6 +39,7 @@
         android:layout_alignStart="@+id/textViewLogDetailTitle"
         android:layout_below="@+id/textViewLogDetailTitle"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
@@ -33,6 +47,17 @@
         android:imeOptions="actionDone"
         android:text="Mamada iniciada na mama esq encerrada na mama direita."
         android:layout_alignEnd="@+id/buttonUpdateSave" />
+
+    <TextView
+        android:id="@+id/textViewEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textViewDateDetail"
+        android:layout_alignStart="@+id/editTextTimeSpent"
+        android:layout_below="@+id/editTextDescription"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Tempo ou (ml)" />
 
     <EditText
         android:id="@+id/editTextTimeSpent"
@@ -43,7 +68,7 @@
         android:layout_below="@+id/editTextDescription"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/hint_activity_detail_timespent"
         android:imeOptions="actionDone"
@@ -51,8 +76,8 @@
 
     <TextView
         android:id="@+id/textViewDateDetail"
-        android:layout_width="363dp"
-        android:layout_height="37dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textSize="24sp"
         android:layout_below="@+id/editTextTimeSpent"
         android:layout_alignStart="@+id/editTextDescription"
@@ -75,13 +100,13 @@
         android:id="@+id/imageButtonDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editTextTimeSpent"
-        android:layout_alignTop="@+id/imageButtonEdit"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:background="@android:color/transparent"
-        app:srcCompat="@drawable/ic_delete_coral_32" />
+        app:srcCompat="@drawable/ic_delete_coral_32"
+        android:layout_alignTop="@+id/imageButtonEdit"
+        android:layout_alignEnd="@+id/editTextTimeSpent" />
 
     <Button
         android:id="@+id/buttonUpdateSave"

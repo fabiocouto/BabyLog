@@ -12,6 +12,11 @@
     <string name="positive_alert">Sim</string>
     <string name="negative_alert">Não</string>
     <string name="title_menu_help">Ajuda</string>
+
+    <string name="title_detail_value">Quantidade em (ml)</string>
+    <string name="title_detail_description">Descrição</string>
+    <string name="title_detail_time_spent">Tempo em minutos</string>
+
     <string name="title_menu_list">Escolha uma opção</string>
     <string name="home_title_button_viewall">Histórico de mamadas</string>
     <string name="home_title_log_detail">Detalhes</string>
@@ -25,11 +30,12 @@
     <string name="message_success_activity_update_breast_feeding">Mamada atualizada com sucesso!</string>
     <string name="message_alert_activity_delete_breast_feeding">O registro será excluído para sempre. Deseja continuar?</string>
     <string name="message_no_filled_fields"> Os campos não podem estar vazios!</string>
-    <string name="message_no_filled_field"> O campo descrição não pode estar vazio!</string>
+    <string name="message_no_filled_field">Campos com valores vazios ou inválidos. Por favor, revise o preenchimento e tente novamente!</string>
     <string name="message_no_activities">Nenhuma atividade cadastrada até o momento!</string>
     <string name="hint_activity_new_breast_feeding">Ex.: Mamada iniciando na mama direita e finalizando na esquerda...</string>
-    <string name="hint_activity_formula_feeding">Fórmula...</string>
-    <string name="text_activity_formula_feeding"> ml </string>
+    <string name="hint_activity_formula_feeding">Fórmula tal...</string>
+    <string name="hint_activity_formula_mls">Ex.: 160</string>
+    <string name="text_activity_formula_feeding"> Informe a quantidade em (ml)</string>
     <string name="hint_activity_detail_timespent">Informe o tempo em minutos. Ex.: 120...</string>
     <string name="text_activity_help">SAas sasas  asaskhhlhl lhlhlhlhlhlhl hlhlshdlbfb bkbfksbkfbk bkbfksdbkfbdk kbfkbkbkbk bbbbkfbskb kbkbbkfb ksbkbk skbkb kbfsk bksbkbb bkbkb</string>
 </resources>

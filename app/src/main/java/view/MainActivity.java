@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnNewBreastFeeding;
     private Button btnViewAllHistory;
     private final Integer ZERO = 0;
-
+    private  String FROM_MAIN = "FROM_MAIN";
+    private  String FROM_HISTORY = "FROM_HISTORY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +34,16 @@ public class MainActivity extends AppCompatActivity {
     protected void initFields(){
         btnNewBreastFeeding = (Button) findViewById(R.id.buttonNewLog);
         btnViewAllHistory = (Button) findViewById(R.id.buttonViewLogs);
-        buttonNewBrastFeedingActionListener();
+        buttonNewBreastFeedingActionListener();
         buttonViewAllHistoryActionListener();
 
     }
 
-    protected void buttonNewBrastFeedingActionListener(){
+    protected void buttonNewBreastFeedingActionListener(){
         btnNewBreastFeeding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showNewActivityBreastFeeding();
+                showListMenuActivityFromMain();
             }
         });
     }
@@ -57,16 +58,21 @@ public class MainActivity extends AppCompatActivity {
                 if(dao.getAllLocalActivityLogs().size() == ZERO){
                     showMessageErrorDialog();
                 } else {
-                    showListMenuActivity();
-                    //showActivityAllHistory();
+                    showListMenuActivityFromHistory();
                 }
 
             }
         });
     }
 
-    protected void showListMenuActivity(){
+    protected void showListMenuActivityFromMain(){
         Intent intent = new Intent(getApplicationContext(), ListMenuActivity.class);
+        intent.putExtra(FROM_MAIN, FROM_MAIN);
+        startActivity(intent);
+    }
+    protected void showListMenuActivityFromHistory(){
+        Intent intent = new Intent(getApplicationContext(), ListMenuActivity.class);
+        intent.putExtra(FROM_HISTORY, FROM_HISTORY);
         startActivity(intent);
     }
 
@@ -83,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     protected void showMessageErrorDialog(){
         AlertDialog.Builder dialogo = new AlertDialog.Builder(MainActivity.this);
         dialogo.setTitle(R.string.title_alert_warning);
-        dialogo.setMessage("Nenhuma atividade cadastrada até o momento!");
+        dialogo.setMessage(R.string.message_no_activities);
         dialogo.setNeutralButton(R.string.neutral_button_ok, null);
         dialogo.show();
     }

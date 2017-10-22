@@ -22,7 +22,9 @@ import model.ActivityLog;
 
 public class LogDetailActivity extends AppCompatActivity {
 
-    private TextView textViewTitle;
+    private TextView txtViewTitle;
+    private TextView txtViewEditDescription;
+    private TextView txtViewEditValue;
     private EditText edtTextDescription;
     private EditText edtTextTimeSpent;
     private ImageButton imgButtonEdit;
@@ -39,7 +41,14 @@ public class LogDetailActivity extends AppCompatActivity {
         initFields();
         Intent mIntent = getIntent();
         activityLog = mIntent.getParcelableExtra("LogDetailKey");
-        textViewTitle.setText(activityLog.getTitle());
+        txtViewEditDescription.setText(R.string.title_detail_description);
+        if(activityLog == null){
+            activityLog = mIntent.getParcelableExtra("LogDetailKeyFormula");
+            txtViewEditValue.setText(R.string.title_detail_value);
+        } else {
+            txtViewEditValue.setText(R.string.title_detail_time_spent);
+        }
+        txtViewTitle.setText(activityLog.getTitle());
         edtTextDescription.setText(activityLog.getDescription());
         edtTextTimeSpent.setText(String.valueOf(activityLog.getTimeSpent()));
         idActivityTmp = activityLog.getIdActivity();
@@ -47,10 +56,12 @@ public class LogDetailActivity extends AppCompatActivity {
 
 
     protected void initFields(){
-        textViewTitle = (TextView) findViewById(R.id.textViewLogDetailTitle);
+        txtViewTitle = (TextView) findViewById(R.id.textViewLogDetailTitle);
+        txtViewEditDescription = (TextView) findViewById(R.id.textViewEditDescription);
+        txtViewEditValue = (TextView) findViewById(R.id.textViewEdit);
         edtTextDescription = (EditText) findViewById(R.id.editTextDescription);
         edtTextTimeSpent = (EditText) findViewById(R.id.editTextTimeSpent);
-        imgButtonEdit = (ImageButton) findViewById(R.id.imageButtonEdit);;
+        imgButtonEdit = (ImageButton) findViewById(R.id.imageButtonEdit);
         imgButtonDelete = (ImageButton) findViewById(R.id.imageButtonDelete);
         btnUpdateSave = (Button) findViewById(R.id.buttonUpdateSave);
         edtTextDescription.setEnabled(false);

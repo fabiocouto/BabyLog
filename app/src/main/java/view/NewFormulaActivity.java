@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,13 +23,13 @@ public class NewFormulaActivity extends AppCompatActivity {
 
     private Button btnSave;
     private EditText edtTextdescription;
+    private EditText edtTextMls;
     private TextView txtViewMls;
     private Long mls;
-    private SeekBar skBarMl;
     private final String PLATFORM = "ANDROID";
     private final String GUEST_USER = "GUEST";
     private final Long ONE = 1l;
-    private Integer seekBarResult;
+    private final Integer ZERO = 0;
 
 
     @Override
@@ -43,19 +42,19 @@ public class NewFormulaActivity extends AppCompatActivity {
 
     protected void initFields(){
         mls = ONE;
+        edtTextMls = (EditText) findViewById(R.id.editTextMls);
         edtTextdescription = (EditText) findViewById(R.id.editTextDescriptionActivity);
         edtTextdescription.setImeOptions(EditorInfo.IME_ACTION_DONE);
         edtTextdescription.setRawInputType(InputType.TYPE_CLASS_TEXT);
         txtViewMls = (TextView) findViewById(R.id.textViewMls);
         txtViewMls.setText(R.string.text_activity_formula_feeding);
-        skBarMl = (SeekBar) findViewById(R.id.seekBarMls);
         btnSave = (Button) findViewById(R.id.buttonSaveNewLog);
-        buttonSaveBrastFeedingActionListener();
-        setOnSeekbarListener();
+        buttonSaveFormulaFeedingActionListener();
+
     }
 
 
-    protected void buttonSaveBrastFeedingActionListener(){
+    protected void buttonSaveFormulaFeedingActionListener(){
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +68,7 @@ public class NewFormulaActivity extends AppCompatActivity {
                     activity1.setIdActivity(activityId);
                     activity1.setTitle(strConverter.generateActivityLogTitle(activityId));
                     activity1.setDescription(edtTextdescription.getText().toString());
-                    activity1.setTimeSpent(1L);
+                    activity1.setTimeSpent(mls);
                     activity1.setLocalDate(strConverter.getLocalDateTimeFormatted());
                     activity1.setLocalHour(strConverter.getLocalTimeFormatted());
                     activity1.setUsername(GUEST_USER);
@@ -88,32 +87,6 @@ public class NewFormulaActivity extends AppCompatActivity {
         });
     }
 
-    protected void setOnSeekbarListener(){
-        int start_position = 0;
-
-        skBarMl.setProgress(start_position);
-        skBarMl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            int seekBarProgress = 30;
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                seekBarProgress = progress;
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                txtViewMls.setText(seekBarProgress + " / " + String.valueOf(seekBar.getMax()) + " " + "ml");
-                seekBarResult = seekBarProgress;
-                Toast.makeText(getApplicationContext(), "SeekBar Touch Stop " + seekBarResult.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
 
     public ActivityLog getObjectForTesting(Integer id){
         ActivityLog activity2 = new ActivityLog();
@@ -128,8 +101,12 @@ public class NewFormulaActivity extends AppCompatActivity {
 
 
     protected Boolean isEditTextDescriptionFilled(){
-
-        if (edtTextdescription.getText().toString().equals("")) {
+        if(edtTextMls.getText().toString().length() > ZERO) {
+            mls = Long.parseLong(String.valueOf(edtTextMls.getText()));
+        }
+        if (edtTextdescription.getText().toString().equals("") || edtTextMls.getText().toString().equals("")) {
+            return false;
+        } if (mls <= ZERO){
             return false;
         } else{
             return  true;

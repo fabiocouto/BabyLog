@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,39 +20,55 @@ public class ListMenuActivity extends AppCompatActivity {
     private ArrayAdapter<String> listAdapter ;
     private final String BREASTFEED = "BREASTFEED";
     private final String FORMULA = "BREASTFEED";
+    private final Integer BREASTFEED_POSITION = 0;
+    private final Integer FORMULA_POSITION = 1;
+    private String strIntent = "";
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_list);
+        initFields();
+        listViewMenuActionListener();
+    }
+
+
+    protected void initFields(){
         menuListView = (ListView) findViewById( R.id.menuListView );
         String[] options = new String[] {MenuEnum.MAMADA.getDescricao(), MenuEnum.COMPLEMENTO.getDescricao()};
         ArrayList<String> optionsList = new ArrayList<String>();
         optionsList.addAll( Arrays.asList(options) );
-        listAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.simple_row_menu, R.id.rowTextView, optionsList);
+        listAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.simple_row_menu, R.id.rowTextView, optionsList);
         menuListView.setAdapter( listAdapter );
-        listViewMenuActionListener();
+        Intent mIntent = getIntent();
+        strIntent = mIntent.getStringExtra("FROM_MAIN");
+        if(strIntent == null){
+            strIntent = mIntent.getStringExtra("FROM_HISTORY");
+        }
 
     }
-
 
     protected void listViewMenuActionListener(){
 
         menuListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0){
 
-                    Toast.makeText(getApplicationContext(), "Pos ZERO = " + String.valueOf(position), Toast.LENGTH_LONG).show();
-                    //showActivityBreastFeedingHistory();
-                    showActivityNewFormula();
-
+                if (strIntent.equals("FROM_MAIN")) {
+                    if(position == BREASTFEED_POSITION){
+                        showActivityNewBreastFeeding();
+                    } else {
+                        showActivityNewFormula();
+                    }
                 }
-
-                if(position == 1){
-                    showActivityFormulaHistory();
-                    Toast.makeText(getApplicationContext(), "Pos ONE = " + String.valueOf(position), Toast.LENGTH_LONG).show();
+                else {
+                    if(position == FORMULA_POSITION){
+                        showActivityFormulaHistory();
+                    } else {
+                        showActivityBreastFeedingHistory();
+                    }
                 }
             }
         });
@@ -66,7 +81,7 @@ public class ListMenuActivity extends AppCompatActivity {
     }
 
     protected void showActivityFormulaHistory(){
-        Intent intent = new Intent(getApplicationContext(), ListAllHistoryActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ListAllFormulaHistoryActivity.class);
         intent.putExtra(FORMULA, FORMULA);
         startActivity(intent);
     }
