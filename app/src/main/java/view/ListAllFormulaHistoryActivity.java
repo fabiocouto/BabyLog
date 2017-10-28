@@ -46,6 +46,7 @@ public class ListAllFormulaHistoryActivity extends AppCompatActivity {
     private Intent getParentActivityIntentImpl() {
 
        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+
             startActivity(i);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         return i;
@@ -76,6 +77,7 @@ public class ListAllFormulaHistoryActivity extends AppCompatActivity {
                 Intent logDetailsIntent = new Intent(ListAllFormulaHistoryActivity.this, LogDetailActivity.class);
                 logDetailsIntent.putExtra("LogDetailKeyFormula", activityLog);
                 startActivity(logDetailsIntent);
+                //finish();
 
             }
         });
@@ -84,6 +86,7 @@ public class ListAllFormulaHistoryActivity extends AppCompatActivity {
     protected void showHelpActivity(){
         Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

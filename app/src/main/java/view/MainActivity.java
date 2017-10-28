@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btnNewBreastFeeding;
     private Button btnViewAllHistory;
     private final Integer ZERO = 0;
-    private  String FROM_MAIN = "FROM_MAIN";
-    private  String FROM_HISTORY = "FROM_HISTORY";
+    private final String FROM_MAIN = "FROM_MAIN";
+    private final String FROM_HISTORY = "FROM_HISTORY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,15 +65,32 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public Intent getParentActivityIntent() {
+        return getParentActivityIntentImpl();
+    }
+
+    private Intent getParentActivityIntentImpl() {
+
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
+        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        finish();
+        return i;
+    }
+
+
     protected void showListMenuActivityFromMain(){
         Intent intent = new Intent(getApplicationContext(), ListMenuActivity.class);
         intent.putExtra(FROM_MAIN, FROM_MAIN);
         startActivity(intent);
+        finish();
     }
     protected void showListMenuActivityFromHistory(){
         Intent intent = new Intent(getApplicationContext(), ListMenuActivity.class);
         intent.putExtra(FROM_HISTORY, FROM_HISTORY);
         startActivity(intent);
+        finish();
     }
 
     protected void showNewActivityBreastFeeding(){

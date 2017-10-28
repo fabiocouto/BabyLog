@@ -99,7 +99,7 @@ public class NewBreastFeedingActivity extends AppCompatActivity {
                     stopChronometer();
                     StringConverter strConverter = new StringConverter();
                     ActivityLogDAO dao = new ActivityLogDAO(getApplicationContext());
-                    Integer activityId = dao.generateActivityLogId();
+                    Integer activityId = dao.generateBreastFeedingActivityLogId();
                     ActivityLog activity1 = new ActivityLog();
                     activity1.setIdActivity(activityId);
                     activity1.setTitle(strConverter.generateActivityLogTitle(activityId));

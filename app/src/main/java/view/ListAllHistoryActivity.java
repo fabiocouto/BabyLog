@@ -76,6 +76,7 @@ public class ListAllHistoryActivity extends AppCompatActivity {
                 Intent logDetailsIntent = new Intent(ListAllHistoryActivity.this, LogDetailActivity.class);
                 logDetailsIntent.putExtra("LogDetailKey", activityLog);
                 startActivity(logDetailsIntent);
+                //finish();
 
             }
         });
@@ -84,6 +85,7 @@ public class ListAllHistoryActivity extends AppCompatActivity {
     protected void showHelpActivity(){
         Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -107,5 +109,7 @@ public class ListAllHistoryActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }

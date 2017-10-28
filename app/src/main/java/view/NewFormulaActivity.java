@@ -63,10 +63,10 @@ public class NewFormulaActivity extends AppCompatActivity {
 
                     StringConverter strConverter = new StringConverter();
                     ActivityLogDAO dao = new ActivityLogDAO(getApplicationContext());
-                    Integer activityId = dao.generateActivityLogId();
+                    Integer activityId = dao.generateFormulaActivityLogId();
                     ActivityLog activity1 = new ActivityLog();
                     activity1.setIdActivity(activityId);
-                    activity1.setTitle(strConverter.generateActivityLogTitle(activityId));
+                    activity1.setTitle(strConverter.generateActivityLogTitleForFormula(activityId));
                     activity1.setDescription(edtTextdescription.getText().toString());
                     activity1.setTimeSpent(mls);
                     activity1.setLocalDate(strConverter.getLocalDateTimeFormatted());

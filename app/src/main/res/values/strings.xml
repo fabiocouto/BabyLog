@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">BebêLog</string>
+    <string name="app_name">LoggieBaby</string>
     <string name="app_version">Versão - 1.0</string>
-    <string name="home_title">Bem-vindo ao BebêLog!</string>
+    <string name="home_title">Bem-vindo ao LoggieBaby!</string>
     <string name="home_title_action">O que você deseja fazer?</string>
-    <string name="home_title_button_new">Registrar nova mamada</string>
+    <string name="home_title_button_new">Registrar nova atividade</string>
     <string name="title_button_save">Salvar</string>
     <string name="title_alert_atention">Atenção!</string>
     <string name="title_alert_warning">Aviso!</string>
@@ -18,10 +18,10 @@
     <string name="title_detail_time_spent">Tempo em minutos</string>
 
     <string name="title_menu_list">Escolha uma opção</string>
-    <string name="home_title_button_viewall">Histórico de mamadas</string>
+    <string name="home_title_button_viewall">Consultar Histórico</string>
     <string name="home_title_log_detail">Detalhes</string>
     <string name="home_button_save_log_detail">Salvar</string>
-    <string name="home_title_viewall">Histórico de mamadas</string>
+    <string name="home_title_viewall">Histórico de mamadas</string>s
     <string name="title_activity_new_breast_feeding">Nova atividade</string>
     <string name="title_activity_new_formula_feeding">Nova atividade</string>
     <string name="title_activity_history">Histórico de Mamadas</string>
@@ -36,6 +36,6 @@
     <string name="hint_activity_formula_feeding">Fórmula tal...</string>
     <string name="hint_activity_formula_mls">Ex.: 160</string>
     <string name="text_activity_formula_feeding"> Informe a quantidade em (ml)</string>
-    <string name="hint_activity_detail_timespent">Informe o tempo em minutos. Ex.: 120...</string>
-    <string name="text_activity_help">SAas sasas  asaskhhlhl lhlhlhlhlhlhl hlhlshdlbfb bkbfksbkfbk bkbfksdbkfbdk kbfkbkbkbk bbbbkfbskb kbkbbkfb ksbkbk skbkb kbfsk bksbkbb bkbkb</string>
+    <string name="hint_activity_detail_timespent">Informe o tempo em minutos. Ex.: 55</string>
+    <string name="text_activity_help">O LoggieBaby é um aplicativo para ajudar as mamães ou papais a manter o histórico de amamentação dos seus bebês. Com ele, é possível registrar as atividades de amamentação com leite materno ou complemento/fórmula, editar as informações, caso seja necessário, e verificá-las qualquer momento.</string>
 </resources>
