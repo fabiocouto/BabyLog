@@ -20,7 +20,7 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textColor="@color/colorAccent"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="normal" />
 
